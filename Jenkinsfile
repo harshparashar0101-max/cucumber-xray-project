@@ -44,7 +44,7 @@ pipeline {
              -H "Authorization: Bearer %XRAY_TOKEN%" ^
              -F "info=@xray.json" ^
              -F "result=@target/cucumber.json" ^
-             %XRAY_BASE_URL%/api/v2/import/execution
+             %XRAY_BASE_URL%/api/v2/import/cucumber
         '''
     }
 }
