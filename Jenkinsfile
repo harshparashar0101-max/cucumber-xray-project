@@ -34,19 +34,20 @@ pipeline {
             }
         }
 
-        stage('Upload Cucumber Results to Xray') {
-            steps {
-                bat '''
-                set /p XRAY_TOKEN=<xray_token.txt
-                set XRAY_TOKEN=%XRAY_TOKEN:"=%
+        stage('Upload Results to Xray') {
+    steps {
+        bat '''
+        set /p XRAY_TOKEN=<xray_token.txt
+        set XRAY_TOKEN=%XRAY_TOKEN:"=%
 
-                curl -H "Content-Type: application/json" ^
-                     -H "Authorization: Bearer %XRAY_TOKEN%" ^
-                     --data @target/cucumber.json ^
-                     %XRAY_BASE_URL%/api/v2/import/execution/cucumber?testExecKey=LOGI-70
-                '''
-            }
-        }
+        curl -H "Content-Type: application/json" ^
+             -H "Authorization: Bearer %XRAY_TOKEN%" ^
+             -F "info=@xray.json" ^
+             -F "result=@target/cucumber.json" ^
+             %XRAY_BASE_URL%/api/v2/import/execution
+        '''
+    }
+}
     }
 
     post {
