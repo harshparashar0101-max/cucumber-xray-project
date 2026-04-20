@@ -48,6 +48,15 @@ pipeline {
         '''
     }
 }
+
+
+          stage('Check xray.json') {
+    steps {
+        bat 'type xray.json'
+    }
+}
+
+
     }
 
     post {
