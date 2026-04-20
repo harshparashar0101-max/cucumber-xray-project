@@ -42,13 +42,11 @@ pipeline {
 
         curl -H "Content-Type: application/json" ^
              -H "Authorization: Bearer %XRAY_TOKEN%" ^
-             -F "info=@xray.json" ^
-             -F "result=@target/cucumber.json" ^
-             %XRAY_BASE_URL%/api/v2/import/execution/cucumber
+             --data @target/cucumber.json ^
+             %XRAY_BASE_URL%/api/v2/import/execution/cucumber?testExecKey=LOGI-70
         '''
     }
 }
-
 
           stage('Check xray.json') {
     steps {
