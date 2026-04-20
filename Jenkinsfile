@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/harshparashar0101-max/Java-Seleinum-Testng.git'
+                git branch: 'main', url: 'https://github.com/harshparashar0101-max/cucumber-xray-project.git'
             }
         }
 
