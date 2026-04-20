@@ -43,7 +43,7 @@ pipeline {
                 curl -H "Content-Type: application/json" ^
                      -H "Authorization: Bearer %XRAY_TOKEN%" ^
                      --data @target/cucumber.json ^
-                     %XRAY_BASE_URL%/api/v2/import/execution/cucumber?testExecKey=LOGI-70"
+                     %XRAY_BASE_URL%/api/v2/import/execution/cucumber?testExecKey=LOGI-70
                 '''
             }
         }
